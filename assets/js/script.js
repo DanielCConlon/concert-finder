@@ -16,7 +16,7 @@ var attributeParameter = "&attribute=albumTerm";
 
 
 var getItunesApi = function() {
-    fetch(baseItunesSearchApi + artistName + attributeParameter + "&limit=15")
+    fetch(baseItunesSearchApi + artistName + attributeParameter + "&limit=10")
     .then(function(response) {
         return response.json();
     })
@@ -30,7 +30,7 @@ var displayAlbum = function(artist) {
     console.log(artist)
     for (var i = 0; i < artist.results.length; i++) {
         // define a variable to the api field
-        var albumArtwork = artist.results[i].artworkUrl100;
+        var albumArtwork = artist.results[i].artworkUrl60;
         var albumName = artist.results[i].collectionName;
         var albumArtist = artist.results[i].artistName;
         var artistPage = artist.results[i].artistViewUrl;
@@ -50,17 +50,21 @@ var displayAlbum = function(artist) {
         var albumCreator = document.createElement("span");
         albumCreator.textContent = albumArtist;
 
+        // create a button for them to go into
+        var albumButton = document.createElement("button");
+
+        albumButton.appendChild(albumEl);
+        albumButton.appendChild(albumCover);
+        albumButton.appendChild(albumHeader);
+        albumButton.appendChild(albumCreator);
+
         // append them to the albums ID div
-        albumsEl.appendChild(albumEl);
-        albumsEl.appendChild(albumCover);
-        albumsEl.appendChild(albumHeader);
-        albumsEl.appendChild(albumCreator);
+        albumsEl.appendChild(albumButton);
+
 
         
     }
 };
-
-
 
 getItunesApi();
 
