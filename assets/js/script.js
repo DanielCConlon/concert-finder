@@ -2,21 +2,11 @@ var albumsEl = document.querySelector("#albums");
 var baseItunesSearchApi = "https://itunes.apple.com/search?";
 var artistName = "term=Kendrick Lamar";
 var attributeParameter = "&attribute=albumTerm";
-// var songAttribute = "&entity=song"
-// var paramterLimit = "&limit=10";
-
-// var baseItunesSearchApi = "https://itunes.apple.com/lookup?id=368183298&entity=album";
-// var atristName = "term=Kendrick Lamar";
-// var mediaParameter = "&media=music";
-
-
-// https://itunes.apple.com/search?term=Queen&attribute=artistTerm&entity=song&limit=300
-// returns 300 songs by queen
-
+var paramterLimit = "&limit=10";
 
 
 var getItunesApi = function() {
-    fetch(baseItunesSearchApi + artistName + attributeParameter + "&limit=10")
+    fetch(baseItunesSearchApi + artistName + attributeParameter + paramterLimit)
     .then(function(response) {
         return response.json();
     })
