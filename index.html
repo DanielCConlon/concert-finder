@@ -1,57 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
-</head>
-<body>
-    <header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Project Concert</title>
+  </head>
+  <body>
+    <!-- <header>
         <h1>Project Concert</h1>
-    </header>
-    <main class="">
-        <!-- Nav and search bar -->
-        <section> 
-            <div>
-                <input type="text" class="" id="" name="" placeholder="Artist, band, British boy band..." required>
-            </div>
-            <div>
-                <!-- Nav buttons -->
-                <button>Home</button>
-                <button>Favorite Artist</button>
-                <button>Preferences</button>
-                <button>Settings</button>
-                <h4>Developed by Team 5</h4>
-            </div>
-        </section>
+    </header> -->
+    <section class="section">
+      <!-- Sidebar for search bar and buttons -->
+      <div class="sidebar">
+        <div class="search">
+          <input
+            type="text"
+            class=""
+            id="inputSearch"
+            name=""
+            placeholder="Artist, band, British boy band..."
+            required
+          />
+        </div>
+        <div class="nav">
+          <!-- Nav buttons -->
+          <button>Home</button>
+          <button>Favorite Artist</button>
+          <button>Preferences</button>
+          <button>Settings</button>
+          <h4>Developed by Team 5</h4>
+        </div>
+      </div>
 
-        <!-- Artist header -->
-        <section>
-            <!-- Socials -->
-            <div>
-                 
+      <!-- Banner & API container -->
+      <container class="content">
+        <!-- Banner of artist -->
+        <div class="banner">
+            <div class="banner-bottom">
+                <h1 id="artist">Kendrick Lamar</h1>
             </div>
-            <div>
-                <h1 id="artist"></h1>
-                <image id="artist-photo"></image>
+            <div class="banner-top">
+                <h1>Project Concert</h1>
             </div>
-        </section>
+        </div>
 
-        <!-- Concert & music Info -->
-        <section>
-            <container>
-                <div>
-                    
-                </div>
-                <div>
-                    
-                </div>
-            </container>
-        </section>
-    </main>
+        <!-- Concert Info & iTunes -->
+        <div class="api">
+          <!-- Ticketmaster API -->
+          <div class="ticketmaster">
+
+          </div>
+
+          <!-- iTunes API -->
+          <div class="itunes" id="albums">
+              <div class="artist-photo">
+                <image src="./assets/images/kendrick.png" id="artist-photo"></image>
+              </div>
+          </div>
+        </div>
+      </container>
+    </section>
 
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
