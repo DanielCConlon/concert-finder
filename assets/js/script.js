@@ -5,6 +5,7 @@ var attributeParameter = "&attribute=albumTerm";
 var paramterLimit = "&limit=10";
 
 
+
 var getItunesApi = function() {
     fetch(baseItunesSearchApi + artistName + attributeParameter + paramterLimit)
     .then(function(response) {
