@@ -1,10 +1,13 @@
 var albumsEl = document.querySelector("#albums");
 var baseItunesSearchApi = "https://itunes.apple.com/search?";
-// var artistName = "term=kendrick+lamar";
-var attributeParameter = "&attribute=albumTerm";
+var attributeParameter = "&entity=album";
 var paramterLimit = "&limit=10";
 var userInput = document.querySelector("#inputSearch");
 var userFormInputEl = document.querySelector("#searchArtist");
+var previousArtistSearchEl = document.querySelector("#previousArtist");
+
+// create an array to store previous searches
+var artistSearch = [];
 
 
 
@@ -20,12 +23,15 @@ var formItunesInputHandler = function(event) {
         getItunesApi(artistLookup);
 
     }
+    // saving the input and calling the function to display a previous search 
+    saveInput();
+    previousSearch(artistLookup);
 
 };
 
 
 var getItunesApi = function(artistName) {
-    fetch(baseItunesSearchApi + "term="+ artistName + attributeParameter + paramterLimit)
+    fetch(baseItunesSearchApi + "term="+ artistName + paramterLimit + attributeParameter)
     .then(function(response) {
         return response.json();
     })
@@ -45,12 +51,9 @@ var displayAlbum = function(artist) {
         var albumArtist = artist.results[i].artistName;
 
         // variable to get the artist's itune page
-        // var artistPage = artist.results[i].artistViewUrl;
-        // var artistPageEl = document.createElement("a");
-        // artistPageEl.textContent = artist.results[i].artistName;
-
-        // albumsEl.appendChild(artistPageEl);
-
+        var artistPage = artist.results[i].artistViewUrl;
+        var artistPageEl = document.createElement("a");
+        artistPageEl.setAttribute("href", artistPage);
 
         // create a container for each album
         var albumEl = document.createElement("img");
@@ -68,7 +71,9 @@ var displayAlbum = function(artist) {
 
         // create a button for them to go into
         var albumButton = document.createElement("button");
+        albumButton.setAttribute("type", "submit");
 
+        albumButton.appendChild(artistPageEl);
         albumButton.appendChild(albumEl);
         albumButton.appendChild(albumCover);
         albumButton.appendChild(albumHeader);
@@ -79,9 +84,30 @@ var displayAlbum = function(artist) {
     }
 };
 
+var saveInput = function() {
+    localStorage.setItem("artistSearch", JSON.stringify(artistSearch));
+};
+
+var previousSearch = function(pastSearch) {
+    previousArtist = document.createElement("button");
+    previousArtist.setAttribute("data-artist", pastSearch);
+    previousArtist.setAttribute("type", "submit");
+    previousArtist.textContent = pastSearch;
+
+    previousArtistSearchEl.appendChild(previousArtist);
+};
+
+var previousSearchHandler = function(event) {
+    var artistSearched = event.target.getAttribute("data-artist");
+    if (artistSearched) {
+        formItunesInputHandler(artistSearched);
+    }
+};
+
 // getItunesApi();
 
 userFormInputEl.addEventListener("submit", formItunesInputHandler);
+previousArtistSearchEl.addEventListener("click", previousSearchHandler);
 
 // song name - trackName
 // artist link - artistViewUrl
