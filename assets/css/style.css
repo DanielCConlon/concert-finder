@@ -5,7 +5,9 @@ body {
     background-color: #181818;
   }
   
-  .header {}
+  .header {
+
+  }
   
   .section {
     display: flex;
@@ -23,6 +25,9 @@ body {
     height: 100vh;
     position: fixed;
     border-right: 1px solid #353739;
+    background-color: #181818;
+    display: flex;
+    flex-direction: column;
   }
   
   .banner {
@@ -96,4 +101,90 @@ body {
     padding-right: 20px;
   }
 
-  
+  .search-bar {
+    background-color: #353739 !important;
+    width: 95% !important;
+    margin-top: 5px;
+    margin-left: 2%;
+    border-radius: 7px;
+    height: 30px !important;
+    color: #CECCCC !important;
+    font-size: 16px !important;
+    padding-left: 28px !important;
+    border: solid 1px #353739 !important;
+  }
+
+  .search-icon {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: 18px;
+    margin-left: 2px;
+    z-index: 100;
+    filter: invert();
+    opacity: .4;
+  }
+
+  .btn {
+    background-color: #353739 !important;
+    border-radius: 7px;
+    border: solid 1px #353739 !important;
+    color: #CECCCC !important;
+    font-size: 13px !important;
+    margin-top: 5px;
+    margin-left: 2%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    margin-top: 50px;
+  }
+
+  .nav button {
+    background-color: #35373900;
+    border: none;
+    color: #979797;
+    font-size: 18px !important;
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    width: 80%;
+    height: 40px;
+    margin-top: 10px;
+    justify-content: left;
+    align-items: center;
+    display: flex;
+  }
+
+  .home-btn {
+    background-color: #353739 !important;
+    border-radius: 7px;
+    border: solid 1px #353739 !important;
+    color: #CECCCC !important;
+    font-size: 18px !important;
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    width: 80%;
+    height: 40px;
+    margin-top: 20px;
+    justify-content: left;
+    align-items: center;
+    display: flex;
+  }
+
+  .material-symbols-outlined {
+    margin-left: 5px;
+    margin-right: 8px;
+  }
