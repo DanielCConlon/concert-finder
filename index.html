@@ -19,7 +19,8 @@
       <!-- Sidebar for search bar and buttons -->
       <div class="sidebar">
         <div class="search">
-          <input
+          <form id="searchArtist">
+            <input
             type="text"
             class=""
             id="inputSearch"
@@ -27,6 +28,9 @@
             placeholder="Artist, band, British boy band..."
             required
           />
+          <button type="submit" class="btn">Get artist</button>
+
+          </form>
         </div>
         <div class="nav">
           <!-- Nav buttons -->
@@ -34,7 +38,8 @@
           <button>Favorite Artist</button>
           <button>Preferences</button>
           <button>Settings</button>
-          <h4>Developed by Team 5</h4>
+          <h4>Developed by Team 4</h4>
+          <div id="previousArtist" class="artist"></div>
         </div>
       </div>
 
