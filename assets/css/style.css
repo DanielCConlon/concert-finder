@@ -94,20 +94,16 @@ body {
     order: 1;
   }
   
-  .itunes {
-    width: 30%;
-    order: 2;
-    background-color: #151515;
-    padding-right: 20px;
-  }
+
 
   .search-bar {
+    border: none;
     background-color: #353739 !important;
-    width: 95% !important;
-    margin-top: 5px;
-    margin-left: 2%;
+    width: 90% !important;
+    margin-top: 10px;
+    margin-left: 5%;
     border-radius: 7px;
-    height: 30px !important;
+    height: 35px !important;
     color: #CECCCC !important;
     font-size: 16px !important;
     padding-left: 28px !important;
@@ -116,8 +112,8 @@ body {
 
   .search-icon {
     position: absolute;
-    top: 6px;
-    left: 8px;
+    top: 8px;
+    left: 6%;
     width: 18px;
     margin-left: 2px;
     z-index: 100;
@@ -165,6 +161,11 @@ body {
     display: flex;
   }
 
+  .nav button:hover {
+    opacity: .6;
+    transition: .5s;
+  }
+
   .home-btn {
     background-color: #353739 !important;
     border-radius: 7px;
@@ -187,4 +188,52 @@ body {
   .material-symbols-outlined {
     margin-left: 5px;
     margin-right: 8px;
+  }
+
+  .itunes {
+    width: 30%;
+    order: 2;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .itunes h2 {
+    font-weight: 700;
+    font-size: 40px !important;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .itunes button {
+    background-color: #15151500;
+    color: #fff;
+    font-size: 18px;
+    text-align: left;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    line-height: 1.5rem;
+    width: 100%;
+  }
+
+  .itunes img {
+    height: 100px;
+  }
+
+  .song-name {
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 20px;
+    background-color: #252628;
+    border-left: solid 5px #F3616B;
+    padding-top: 10px;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .album-btn {
+    border-radius: 10px;
   }
