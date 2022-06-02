@@ -5,10 +5,6 @@ body {
     background-color: #181818;
   }
   
-  .header {
-
-  }
-  
   .section {
     display: flex;
     height: 100vh;
@@ -66,6 +62,10 @@ body {
     margin-right: 30px;
     text-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
     font-size: 1.3vw;
+  }
+
+  .artist {
+    flex: 0 0 100%;
   }
   
   .artist-photo {

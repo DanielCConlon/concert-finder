@@ -1,4 +1,4 @@
-var albumsEl = document.querySelector("#albums");
+var albumsEl = document.querySelector("#albums-panel");
 var baseItunesSearchApi = "https://itunes.apple.com/search?";
 var attributeParameter = "&entity=album";
 var paramterLimit = "&limit=10";
@@ -21,6 +21,10 @@ var formItunesInputHandler = function(event) {
     // get a value from the user
     var artistLookup = userInput.value.toLowerCase().replace(" ", "+");
     var artistLookupEl = userInput.value;
+
+    // push artist name into artistSearch array
+    artistSearch.push(artistLookupEl);
+
     // console.log(artistLookup);
     // check to make sure a value is entered
     if (artistLookup) {
@@ -45,7 +49,7 @@ var getItunesApi = function(artistName) {
 };
 
 var displayAlbum = function(artist) {
-    console.log(artist)
+    // console.log(artist)
 
 
     for (var i = 0; i < artist.results.length; i++) {
@@ -90,29 +94,29 @@ var displayAlbum = function(artist) {
 
 var saveInput = function() {
     localStorage.setItem("artistSearch", JSON.stringify(artistSearch));
+    console.log(artistSearch);
 };
 
 var loadPreviousInput = function() {
-    artistSearch = JSON.parse(localStorage.getItem("artistSearch"));
+    // get items from local storage
+    var savedItems = JSON.parse(localStorage.getItem("artistSearch"));
+    console.log(savedItems);
 
-    // if nothing in localstorage create a new object to track
-    if (!artistSearch) {
-        artistSearch = [];
+    for (var i = 0; i < savedItems.length; i++) {
+        // working to show up on the left side
+        previousSearch(savedItems[i]);
     }
 
-    // loop over
-    $.each(artistSearch);
+
 
 };
 
+// 
 var previousSearch = function(pastSearch) {
-    previousArtist = document.createElement("span");
+    previousArtist = document.createElement("button");
     previousArtist.setAttribute("data-artist", pastSearch);
-    // previousArtist.setAttribute("type", "submit");
+    previousArtist.setAttribute("type", "submit");
     previousArtist.textContent = pastSearch;
-
-    // push previous search into the album array
-    artistSearch.push(previousArtist);
 
     previousArtistSearchEl.appendChild(previousArtist);
 };
@@ -124,16 +128,8 @@ var previousSearchHandler = function(event) {
     }
 };
 
-// getItunesApi();
 
 userFormInputEl.addEventListener("submit", formItunesInputHandler);
 previousArtistSearchEl.addEventListener("click", previousSearchHandler);
 
 loadPreviousInput();
-
-// song name - trackName
-// artist link - artistViewUrl
-// album name
-
-
-// add local storage below the developed by team 5 button for previous searches
