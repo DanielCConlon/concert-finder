@@ -14,9 +14,13 @@ var artistSearch = [];
 var formItunesInputHandler = function(event) {
     // call preventDefault
     event.preventDefault();
+
+    // reset the albums displayed on the right side
+    albumsEl.textContent = "";
     
     // get a value from the user
     var artistLookup = userInput.value.toLowerCase().replace(" ", "+");
+    var artistLookupEl = userInput.value;
     // console.log(artistLookup);
     // check to make sure a value is entered
     if (artistLookup) {
@@ -24,8 +28,8 @@ var formItunesInputHandler = function(event) {
 
     }
     // saving the input and calling the function to display a previous search 
-    saveInput();
-    previousSearch(artistLookup);
+    saveInput(artistLookupEl);
+    previousSearch(artistLookupEl);
 
 };
 
@@ -42,6 +46,7 @@ var getItunesApi = function(artistName) {
 
 var displayAlbum = function(artist) {
     console.log(artist)
+
 
     for (var i = 0; i < artist.results.length; i++) {
 
@@ -88,11 +93,27 @@ var saveInput = function() {
     localStorage.setItem("artistSearch", JSON.stringify(artistSearch));
 };
 
+var loadPreviousInput = function() {
+    artistSearch = JSON.parse(localStorage.getItem("artistSearch"));
+
+    // if nothing in localstorage create a new object to track
+    if (!artistSearch) {
+        artistSearch = [];
+    }
+
+    // loop over
+    $.each(artistSearch);
+
+};
+
 var previousSearch = function(pastSearch) {
-    previousArtist = document.createElement("button");
+    previousArtist = document.createElement("span");
     previousArtist.setAttribute("data-artist", pastSearch);
-    previousArtist.setAttribute("type", "submit");
+    // previousArtist.setAttribute("type", "submit");
     previousArtist.textContent = pastSearch;
+
+    // push previous search into the album array
+    artistSearch.push(previousArtist);
 
     previousArtistSearchEl.appendChild(previousArtist);
 };
@@ -108,6 +129,8 @@ var previousSearchHandler = function(event) {
 
 userFormInputEl.addEventListener("submit", formItunesInputHandler);
 previousArtistSearchEl.addEventListener("click", previousSearchHandler);
+
+loadPreviousInput();
 
 // song name - trackName
 // artist link - artistViewUrl
