@@ -39,6 +39,7 @@ body {
     flex-direction: row;
     height: 50%;
     align-items: flex-end;
+    z-index: 50;
   }
   
   .banner-bottom h1 {
@@ -62,10 +63,22 @@ body {
     margin-right: 30px;
     text-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
     font-size: 1.3vw;
+    z-index: 50;
+  }
+
+  .banner-top img {
+    position: absolute;
+    width: 83vw;
+    height: 48vh;
+    object-fit: cover;
+    object-position: 0 20%;
   }
 
   .artist {
-    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
   }
   
   .artist-photo {
@@ -92,9 +105,26 @@ body {
   .ticketmaster {
     width: 70%;
     order: 1;
+    z-index: 50;
   }
   
+  .ticketmaster h2 {
+    margin: 0;
+    margin-left: 40px;
+    font-weight: 700;
+    font-size: 40px !important;
+    margin-top: 40px;
+    color:#979797;
+  }
 
+  .ticketmaster h3 {
+    margin: 0;
+    margin-left: 40px;
+    font-weight: 700;
+    font-size: 40px !important;
+    margin-top: 10px;
+    color:#979797;
+  }
 
   .search-bar {
     border: none;
@@ -197,6 +227,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    z-index: 50;
+    background-color: #181818;
   }
 
   .itunes h2 {
@@ -217,6 +249,11 @@ body {
     margin-bottom: 20px;
     line-height: 1.5rem;
     width: 100%;
+    cursor: pointer;
+  }
+  
+  .itunes a {
+    text-decoration: none;
   }
 
   .itunes img {
@@ -225,15 +262,50 @@ body {
 
   .song-name {
     width: 100%;
-    height: 100%;
+    height: 100px;
     padding-left: 10px;
     padding-right: 20px;
     background-color: #252628;
     border-left: solid 5px #F3616B;
     padding-top: 10px;
     border-radius: 0 5px 5px 0;
+    text-decoration: none;
   }
 
   .album-btn {
     border-radius: 10px;
+  }
+
+  .search-history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    width: 90%;
+    padding-top: 50px;
+  }
+
+  .search-history h2 {
+    color: #979797 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+  }
+
+  .search-history button {
+    background-color: #353739 !important;
+    border-radius: 7px;
+    border: solid 1px #353739 !important;
+    color: #CECCCC !important;
+    font-size: 18px !important;
+    text-align: center;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    padding: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    margin-top: 12px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
