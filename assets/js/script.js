@@ -5,6 +5,7 @@ var paramterLimit = "&limit=10";
 var userInput = document.querySelector("#inputSearch");
 var userFormInputEl = document.querySelector("#searchArtist");
 var previousArtistSearchEl = document.querySelector("#previousArtist");
+// var albumButtonEl = document.querySelector(".album-btn");
 
 // create an array to store previous searches
 var artistSearch = [];
@@ -57,16 +58,18 @@ var displayAlbum = function(artist) {
         // define a variable to the api field
         var albumArtwork = artist.results[i].artworkUrl100;
         var albumName = artist.results[i].collectionName;
-        var albumArtist = artist.results[i].artistName;
+        // var albumArtist = artist.results[i].artistName;
 
         // variable to get the artist's itune page
         var artistPage = artist.results[i].artistViewUrl;
         var artistPageEl = document.createElement("a");
         artistPageEl.setAttribute("href", artistPage);
+        // albumEl.setAttribute("target", "_blank");
 
         // create a container for each album
         var albumEl = document.createElement("img");
         albumEl.setAttribute("src", albumArtwork);
+        
 
         // create a span element to hold album name/picture/ artist name
         var albumCover = document.createElement("span");
@@ -79,18 +82,28 @@ var displayAlbum = function(artist) {
         // create a button for them to go into
         var albumButton = document.createElement("button");
         albumButton.classList="album-btn";
+        albumButton.setAttribute("name", "album-button");
         albumButton.setAttribute("type", "submit");
+        
 
-        albumButton.appendChild(artistPageEl);
+        // albumButton.appendChild(artistPageEl);
         albumButton.appendChild(albumEl);
         albumButton.appendChild(albumCover);
         albumButton.appendChild(albumHeader);
         //albumButton.appendChild(albumCreator);
+        // if you click the album button it will bring you to the artist's page
+        artistPageEl.appendChild(albumButton)
 
         // append them to the albums ID div
-        albumsEl.appendChild(albumButton);
+        albumsEl.appendChild(artistPageEl);
     }
 };
+
+// var openAlbumLink = function(event) {
+//     var setOpenAlbum = event.target.setAttribute("target", "_blank");
+//     var openAlbum = event.target.getAttribute("href");
+//     window.open(openAlbum, "_blank").focus();
+// };
 
 var saveInput = function() {
     localStorage.setItem("artistSearch", JSON.stringify(artistSearch));
@@ -134,5 +147,6 @@ var previousSearchHandler = function(event) {
 
 userFormInputEl.addEventListener("submit", formItunesInputHandler);
 previousArtistSearchEl.addEventListener("click", previousSearchHandler);
+// albumsEl.addEventListener("click", openAlbumLink);
 
 loadPreviousInput();
