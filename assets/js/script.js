@@ -124,8 +124,11 @@ var previousSearch = function(pastSearch) {
 var previousSearchHandler = function(event) {
     var artistSearched = event.target.getAttribute("data-artist");
     if (artistSearched) {
-        formItunesInputHandler(artistSearched);
+        getItunesApi(artistSearched);
     }
+    // reset the albums displayed on the right side
+    albumsEl.textContent = "";
+
 };
 
 
