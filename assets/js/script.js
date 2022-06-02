@@ -51,7 +51,7 @@ var displayAlbum = function(artist) {
     for (var i = 0; i < artist.results.length; i++) {
 
         // define a variable to the api field
-        var albumArtwork = artist.results[i].artworkUrl60;
+        var albumArtwork = artist.results[i].artworkUrl100;
         var albumName = artist.results[i].collectionName;
         var albumArtist = artist.results[i].artistName;
 
@@ -69,20 +69,19 @@ var displayAlbum = function(artist) {
         albumCover.img = albumArtwork;
 
         var albumHeader = document.createElement("span");
+        albumHeader.classList="song-name";
         albumHeader.textContent = albumName;
-
-        var albumCreator = document.createElement("span");
-        albumCreator.textContent = albumArtist;
 
         // create a button for them to go into
         var albumButton = document.createElement("button");
+        albumButton.classList="album-btn";
         albumButton.setAttribute("type", "submit");
 
         albumButton.appendChild(artistPageEl);
         albumButton.appendChild(albumEl);
         albumButton.appendChild(albumCover);
         albumButton.appendChild(albumHeader);
-        albumButton.appendChild(albumCreator);
+        //albumButton.appendChild(albumCreator);
 
         // append them to the albums ID div
         albumsEl.appendChild(albumButton);
@@ -134,7 +133,7 @@ loadPreviousInput();
 
 // song name - trackName
 // artist link - artistViewUrl
-// album name 
+// album name
 
 
 // add local storage below the developed by team 5 button for previous searches
