@@ -31,9 +31,8 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #333;
-    background-image: url("../images/Kendrick-Lamar.png");
   }
-
+  
   .banner-bottom {
     order: 2;
     display: flex;
@@ -48,7 +47,7 @@ body {
     margin-left: 20px;
     font-weight: 800;
     font-size: 5vw;
-    text-shadow: 0 0 30px rgba(0, 0, 0, 0.585);
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
   }
   
   .banner-top {
