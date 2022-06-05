@@ -1,36 +1,58 @@
-var requestUrl = 'https://app.ticketmaster.com/discovery/v2/attractions/K8vZ917GSg0.json?apikey=2GjJzLeBAi7sy6v7tcK6BaGgf668jLJh';
-var listEl = document.getElementById("artist");
-var userInputEl = document.querySelector('#inputSearch');
+var eventContainerEl = document.querySelector('#tixmaster');
+var userFormEl = document.querySelector('#searchArtist');
+var artistInputEl = document.querySelector('#inputSearch');
 
-fetch(requestUrl)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data){
-        return displayBannerImage(data);
-    })
 
-    var displayBannerImage = function(event){
-        console.log(event)
-        var bannerTopDiv = document.querySelector('.banner-top');
-        var bannerImgEl = document.createElement('img');
-        bannerImgEl.setAttribute("src", event.images[3].url);
-        bannerTopDiv.appendChild (bannerImgEl);
+var formSubmitHandler = function(event) {
+    eventContainerEl.textContent = "";
+    event.preventDefault();
+    var artistName = artistInputEl.value.trim();
+    if (artistName){
+        getTicketApi(artistName);
+            response.json()
+            .then(function(data){
+            return (data, artist);
 
-    var UpcomingEvents = function(event) {
-        var displayEvents = document.querySelector('.ticketmaster');
-        var displayUpcomingEvents = document.createElement('span')
-        displayUpcomingEvents.textContent = event.url
-        displayEvents.appendChild(displayUpcomingEvents)
-    }
-    }
 
-    var formTicketMasterApi = function(event) {
-        var ticketMasterEvent = userInputEl.value;
-    
-        if (ticketMasterEvent) {
-            displayBannerImage(ticketMasterEvent);
+
         }
-    }
-    userInputEl.addEventListener("submit", formTicketMasterApi);
-    
+        );
+
+
+    };
+};
+
+var getTicketApi = function(artist){
+    var apiUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?' + '&keyword=' + artist + '&apikey=3JcNn4ea56JrBolF27QIGsWgd58v9GSZ';
+
+    fetch(apiUrl).then(function(response){
+        response.json().then(function(data){
+           console.log(data._embedded.events);
+           return {data};
+        });
+
+
+        });
+
+};
+
+var displayEvents = function(events) {
+
+
+
+
+    for (var i=0; i < _embedded.length; i++) {
+
+        var eventName = _embedded.events[i].name;
+
+        var eventNameEl = document.createElement('span');
+        eventNameEl.setAttribute("type", eventName);
+        eventNameEl.textContent = eventName;
+        eventContainerEl.appendChild(eventNameEl);
+        console.log(eventName);
+        data = events;
+};
+ };
+
+
+userFormEl.addEventListener("submit", formSubmitHandler);
