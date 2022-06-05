@@ -1,23 +1,15 @@
-var eventContainerEl = document.querySelector('#tixmaster');
+var eventTicketContainerEl = document.querySelector('.ticketmaster');
 var userFormEl = document.querySelector('#searchArtist');
 var artistInputEl = document.querySelector('#inputSearch');
+var bannerTopEl = document.querySelector(".banner-top");
 
 
 var formSubmitHandler = function(event) {
-    eventContainerEl.textContent = "";
+    eventTicketContainerEl.textContent = "";
     event.preventDefault();
     var artistName = artistInputEl.value.trim();
     if (artistName){
         getTicketApi(artistName);
-            response.json()
-            .then(function(data){
-            return (data, artist);
-
-
-
-        }
-        );
-
 
     };
 };
@@ -25,34 +17,41 @@ var formSubmitHandler = function(event) {
 var getTicketApi = function(artist){
     var apiUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?' + '&keyword=' + artist + '&apikey=3JcNn4ea56JrBolF27QIGsWgd58v9GSZ';
 
-    fetch(apiUrl).then(function(response){
-        response.json().then(function(data){
-           console.log(data._embedded.events);
-           return {data};
-        });
-
-
-        });
+    fetch(apiUrl)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        return displayEvents(data);
+    })
 
 };
 
 var displayEvents = function(events) {
 
+    for (var i=0; i < events._embedded.events.length; i++) {
+
+        var eventName = events._embedded.events[i].name;
+        var eventDate = events._embedded.events[i].dates.start.localDate;
+
+        var eventNameEl = document.createElement("span");
+        eventNameEl.classList = "album-button ticketMasterBtn";
+        eventNameEl.textContent = eventName
+        
+
+        var eventDateEl = document.createElement("span");
+        eventDateEl.classList = "album-button";
+        eventDateEl.textContent = eventDate;
 
 
+        var eventEl = document.createElement("button");
+        eventEl.classList = "btn";
+        eventEl.appendChild(eventNameEl);
+        eventEl.appendChild(eventDateEl);
 
-    for (var i=0; i < _embedded.length; i++) {
+        eventTicketContainerEl.appendChild(eventEl);
 
-        var eventName = _embedded.events[i].name;
-
-        var eventNameEl = document.createElement('span');
-        eventNameEl.setAttribute("type", eventName);
-        eventNameEl.textContent = eventName;
-        eventContainerEl.appendChild(eventNameEl);
-        console.log(eventName);
-        data = events;
+    }
 };
- };
-
 
 userFormEl.addEventListener("submit", formSubmitHandler);

@@ -7,6 +7,7 @@ var userFormInputEl = document.querySelector("#searchArtist");
 var previousArtistSearchEl = document.querySelector("#previousArtist");
 // var albumButtonEl = document.querySelector(".album-btn");
 var artistSearchlocalstorage = localStorage.getItem("artistSearch");
+var artistHeaderEl = document.querySelector("#artist");
 // create an array to store previous searches
 var artistSearch = JSON.parse(artistSearchlocalstorage) || [];
 
@@ -49,7 +50,7 @@ var getItunesApi = function(artistName) {
 };
 
 var displayAlbum = function(artist) {
-    // console.log(artist)
+    console.log(artist)
 
 
     for (var i = 0; i < artist.results.length; i++) {
@@ -108,7 +109,6 @@ var saveInput = function() {
 var loadPreviousInput = function() {
     // get items from local storage
     var savedItems = JSON.parse(localStorage.getItem("artistSearch"));
-    console.log(savedItems);
 
     for (var i = 0; i < savedItems.length; i++) {
         // working to show up on the left side
