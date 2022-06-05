@@ -1,318 +1,341 @@
 body {
-    font-family: 'Raleway', sans-serif;
-    margin: 0;
-    color: #fff;
-    background-color: #181818;
-  }
-  
-  .section {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .content {
-    max-width: 83vw;
-    flex: 1;
-    margin-left: 17vw;
-  }
-  
-  .sidebar {
-    width: 17vw;
-    height: 100vh;
-    position: fixed;
-    border-right: 1px solid #353739;
-    background-color: #181818;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .banner {
-    height: 48vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #333;
-  }
-  
-  .banner-bottom {
-    order: 2;
-    display: flex;
-    flex-direction: row;
-    height: 50%;
-    align-items: flex-end;
-    z-index: 50;
-  }
-  
-  .banner-bottom h1 {
-    margin: 0;
-    margin-left: 20px;
-    font-weight: 800;
-    font-size: 5vw;
-    text-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
-  }
-  
-  .banner-top {
-    order: 1;
-    display: flex;
-    flex-direction: row;
-    height: 50%;
-    justify-content: flex-end;
-  }
-  
-  .banner-top h1 {
-    margin: 20px;
-    margin-right: 30px;
-    text-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
-    font-size: 1.3vw;
-    z-index: 50;
-  }
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  color: #fff;
+  background-color: #181818;
+}
 
-  .banner-top img {
-    position: absolute;
-    width: 83vw;
-    height: 48vh;
-    object-fit: cover;
-    object-position: 0 20%;
-  }
+.section {
+  display: flex;
+  height: 100vh;
+}
 
-  .artist {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
+.content {
+  max-width: 83vw;
+  flex: 1;
+  margin-left: 17vw;
+}
 
-  }
-  
-  .artist-photo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-    top: -15vh;
-  }
-  
-  .artist-photo img {
-    width: 275px;
-    height: 275px;
-    margin-right: 10%;
-    border-radius: 30px;
-    box-shadow: 0 0 20px 7px rgba(0, 0, 0, 0.18);
-  }
-  
-  .api {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .ticketmaster {
-    width: 70%;
-    order: 1;
-    z-index: 50;
-    display: flex;
-    flex-direction: column;
-  }
+.sidebar {
+  width: 17vw;
+  height: 100vh;
+  position: fixed;
+  border-right: 1px solid #353739;
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+}
 
-  .ticketMasterBtn {
-    margin: 5%;
-  }
-  
-  .ticketmaster h2 {
-    margin: 0;
-    margin-left: 40px;
-    font-weight: 700;
-    font-size: 40px !important;
-    margin-top: 40px;
-    color:#979797;
-  }
+.banner {
+  height: 48vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../images/The-Rooftop-at-Pier-17-concert.jpeg");
+  background-size: cover;
+  background-position: center center;
+}
 
-  .ticketmaster h3 {
-    margin: 0;
-    margin-left: 40px;
-    font-weight: 700;
-    font-size: 40px !important;
-    margin-top: 10px;
-    color:#979797;
-  }
+.banner-bottom {
+  order: 2;
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  align-items: flex-end;
+  z-index: 50;
+}
 
-  .search-bar {
-    border: none;
-    background-color: #353739 !important;
-    width: 90% !important;
-    margin-top: 10px;
-    margin-left: 5%;
-    border-radius: 7px;
-    height: 35px !important;
-    color: #CECCCC !important;
-    font-size: 16px !important;
-    padding-left: 28px !important;
-    border: solid 1px #353739 !important;
-  }
+.banner-bottom h1 {
+  margin: 0;
+  margin-left: 20px;
+  font-weight: 800;
+  font-size: 5vw;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
+}
 
-  .search-icon {
-    position: absolute;
-    top: 8px;
-    left: 6%;
-    width: 18px;
-    margin-left: 2px;
-    z-index: 100;
-    filter: invert();
-    opacity: .4;
-  }
+.banner-top {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  justify-content: flex-end;
+}
 
-  .btn {
-    background-color: #353739 !important;
-    border-radius: 7px;
-    border: solid 1px #353739 !important;
-    color: #CECCCC !important;
-    font-size: 13px !important;
-    margin-top: 5px;
-    margin-left: 2%;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding: 5px;
-    cursor: pointer;
-  }
+.banner-top h1 {
+  margin: 20px;
+  margin-right: 30px;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
+  font-size: 1.3vw;
+  z-index: 50;
+}
 
-  .nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: stretch;
-    margin-top: 50px;
-  }
+.banner-top img {
+  position: absolute;
+  width: 83vw;
+  height: 48vh;
+  object-fit: cover;
+  object-position: 0 20%;
+}
 
-  .nav button {
-    background-color: #35373900;
-    border: none;
-    color: #979797;
-    font-size: 18px !important;
-    text-align: left;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding: 5px;
-    cursor: pointer;
-    width: 80%;
-    height: 40px;
-    margin-top: 10px;
-    justify-content: left;
-    align-items: center;
-    display: flex;
-  }
+.artist {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 
-  .nav button:hover {
-    opacity: .6;
-    transition: .5s;
-  }
+}
 
-  .home-btn {
-    background-color: #353739 !important;
-    border-radius: 7px;
-    border: solid 1px #353739 !important;
-    color: #CECCCC !important;
-    font-size: 18px !important;
-    text-align: left;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding: 5px;
-    cursor: pointer;
-    width: 80%;
-    height: 40px;
-    margin-top: 20px;
-    justify-content: left;
-    align-items: center;
-    display: flex;
-  }
+.artist-photo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  top: -15vh;
+}
 
-  .material-symbols-outlined {
-    margin-left: 5px;
-    margin-right: 8px;
-  }
+.artist-photo img {
+  width: 275px;
+  height: 275px;
+  margin-right: 10%;
+  border-radius: 30px;
+  box-shadow: 0 0 20px 7px rgba(0, 0, 0, 0.18);
+}
 
-  .itunes {
-    width: 30%;
-    order: 2;
-    padding-right: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    z-index: 50;
-    background-color: #181818;
-  }
+.api {
+  display: flex;
+  flex-direction: row;
+}
 
-  .itunes h2 {
-    font-weight: 700;
-    font-size: 40px !important;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
+.ticketmaster {
+  width: 70%;
+  order: 1;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 5%;
+}
 
-  .itunes button {
-    background-color: #15151500;
-    color: #fff;
-    font-size: 18px;
-    text-align: left;
-    border: none;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-    line-height: 1.5rem;
-    width: 100%;
-    cursor: pointer;
-  }
-  
-  .itunes a {
-    text-decoration: none;
-  }
+.ticketMasterBtn {
+  margin: 5%;
+}
 
-  .itunes img {
-    height: 100px;
-  }
+.ticketmaster h2 {
+  margin: 0;
+  margin-left: 40px;
+  font-weight: 700;
+  font-size: 40px !important;
+  margin-top: 40px;
+  color:#979797;
+}
 
-  .song-name {
-    width: 100%;
-    height: 100px;
-    padding-left: 10px;
-    padding-right: 20px;
-    background-color: #252628;
-    border-left: solid 5px #F3616B;
-    padding-top: 10px;
-    border-radius: 0 5px 5px 0;
-    text-decoration: none;
-  }
+.ticketmaster h3 {
+  margin: 0;
+  margin-left: 40px;
+  font-weight: 700;
+  font-size: 40px !important;
+  margin-top: 10px;
+  color:#979797;
+}
 
-  .album-btn {
-    border-radius: 10px;
-  }
+.search-bar {
+  border: none;
+  background-color: #353739 !important;
+  width: 90% !important;
+  margin-top: 10px;
+  margin-left: 5%;
+  border-radius: 7px;
+  height: 35px !important;
+  color: #CECCCC !important;
+  font-size: 16px !important;
+  padding-left: 28px !important;
+  border: solid 1px #353739 !important;
+}
+
+.search-icon {
+  position: absolute;
+  top: 8px;
+  left: 6%;
+  width: 18px;
+  margin-left: 2px;
+  z-index: 100;
+  filter: invert();
+  opacity: .4;
+}
+
+.btn {
+  background-color: #353739 !important;
+  border-radius: 7px;
+  border: solid 1px #353739 !important;
+  color: #CECCCC !important;
+  font-size: 13px !important;
+  margin-top: 5px;
+  margin-left: 2%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  margin-top: 50px;
+}
+
+.nav button {
+  background-color: #35373900;
+  border: none;
+  color: #979797;
+  font-size: 18px !important;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding: 5px;
+  cursor: pointer;
+  width: 80%;
+  height: 40px;
+  margin-top: 10px;
+  justify-content: left;
+  align-items: center;
+  display: flex;
+}
+
+.nav button:hover {
+  opacity: .6;
+  transition: .5s;
+}
+
+.home-btn {
+  background-color: #353739 !important;
+  border-radius: 7px;
+  border: solid 1px #353739 !important;
+  color: #CECCCC !important;
+  font-size: 18px !important;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding: 5px;
+  cursor: pointer;
+  width: 80%;
+  height: 40px;
+  margin-top: 20px;
+  justify-content: left;
+  align-items: center;
+  display: flex;
+}
+
+.material-symbols-outlined {
+  margin-left: 5px;
+  margin-right: 8px;
+}
+
+.itunes {
+  width: 30%;
+  order: 2;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 50;
+  background-color: #181818;
+}
+
+.itunes h2 {
+  font-weight: 700;
+  font-size: 40px !important;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.itunes button {
+  background-color: #15151500;
+  color: #fff;
+  font-size: 18px;
+  text-align: left;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  line-height: 1.5rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.itunes a {
+  text-decoration: none;
+}
+
+.itunes img {
+  height: 100px;
+}
+
+.song-name {
+  width: 100%;
+  height: 100px;
+  padding-left: 10px;
+  padding-right: 20px;
+  background-color: #252628;
+  border-left: solid 5px #F3616B;
+  padding-top: 10px;
+  border-radius: 0 5px 5px 0;
+  text-decoration: none;
+}
+
+.album-btn {
+  border-radius: 10px;
+}
 
 
-  .search-history {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
-    width: 90%;
-    padding-top: 50px;
-  }
+.search-history-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  width: 90%;
+  padding-top: 50px;
+}
 
-  .search-history h2 {
-    color: #979797 !important;
-    font-size: 18px !important;
-    font-weight: 600 !important;
-  }
+.search-history-title h2 {
+  color: #979797 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  overflow: scroll !important;
+}
 
-  .search-history button {
-    background-color: #353739 !important;
-    border-radius: 7px;
-    border: solid 1px #353739 !important;
-    color: #CECCCC !important;
-    font-size: 18px !important;
-    text-align: center;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-    padding: 5px;
-    cursor: pointer;
-    width: 100%;
-    height: 40px;
-    margin-top: 12px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
+.search-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  width: 90%;
+  height: 100%;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.search-history::-webkit-scrollbar {
+  display: none;
+}
+
+.search-history button {
+  background-color: #353739 !important;
+  border-radius: 7px;
+  border: solid 1px #353739 !important;
+  color: #cecccc !important;
+  font-size: 18px !important;
+  text-align: center;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  padding: 5px;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  margin-top: 12px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
