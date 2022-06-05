@@ -6,11 +6,9 @@ var userInput = document.querySelector("#inputSearch");
 var userFormInputEl = document.querySelector("#searchArtist");
 var previousArtistSearchEl = document.querySelector("#previousArtist");
 // var albumButtonEl = document.querySelector(".album-btn");
-
+var artistSearchlocalstorage = localStorage.getItem("artistSearch");
 // create an array to store previous searches
-var artistSearch = [];
-
-
+var artistSearch = JSON.parse(artistSearchlocalstorage) || [];
 
 var formItunesInputHandler = function(event) {
     // call preventDefault
@@ -30,11 +28,12 @@ var formItunesInputHandler = function(event) {
     // check to make sure a value is entered
     if (artistLookup) {
         getItunesApi(artistLookup);
-
     }
+
     // saving the input and calling the function to display a previous search 
     saveInput(artistLookupEl);
     previousSearch(artistLookupEl);
+
 
 };
 
@@ -63,6 +62,7 @@ var displayAlbum = function(artist) {
         // variable to get the artist's itune page
         var artistPage = artist.results[i].artistViewUrl;
         var artistPageEl = document.createElement("a");
+        artistPageEl.setAttribute("target", "_blank");
         artistPageEl.setAttribute("href", artistPage);
         // albumEl.setAttribute("target", "_blank");
 
@@ -99,15 +99,10 @@ var displayAlbum = function(artist) {
     }
 };
 
-// var openAlbumLink = function(event) {
-//     var setOpenAlbum = event.target.setAttribute("target", "_blank");
-//     var openAlbum = event.target.getAttribute("href");
-//     window.open(openAlbum, "_blank").focus();
-// };
 
 var saveInput = function() {
     localStorage.setItem("artistSearch", JSON.stringify(artistSearch));
-    console.log(artistSearch);
+    // console.log(artistSearch);
 };
 
 var loadPreviousInput = function() {
@@ -124,7 +119,7 @@ var loadPreviousInput = function() {
 
 };
 
-// 
+
 var previousSearch = function(pastSearch) {
     previousArtist = document.createElement("button");
     previousArtist.setAttribute("data-artist", pastSearch);
@@ -147,6 +142,6 @@ var previousSearchHandler = function(event) {
 
 userFormInputEl.addEventListener("submit", formItunesInputHandler);
 previousArtistSearchEl.addEventListener("click", previousSearchHandler);
-// albumsEl.addEventListener("click", openAlbumLink);
+
 
 loadPreviousInput();
