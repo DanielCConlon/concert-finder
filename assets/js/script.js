@@ -99,11 +99,6 @@ var displayAlbum = function(artist) {
     }
 };
 
-// var openAlbumLink = function(event) {
-//     var setOpenAlbum = event.target.setAttribute("target", "_blank");
-//     var openAlbum = event.target.getAttribute("href");
-//     window.open(openAlbum, "_blank").focus();
-// };
 
 var saveInput = function() {
     localStorage.setItem("artistSearch", JSON.stringify(artistSearch));
@@ -124,7 +119,7 @@ var loadPreviousInput = function() {
 
 };
 
-// 
+
 var previousSearch = function(pastSearch) {
     previousArtist = document.createElement("button");
     previousArtist.setAttribute("data-artist", pastSearch);
@@ -147,6 +142,6 @@ var previousSearchHandler = function(event) {
 
 userFormInputEl.addEventListener("submit", formItunesInputHandler);
 previousArtistSearchEl.addEventListener("click", previousSearchHandler);
-// albumsEl.addEventListener("click", openAlbumLink);
+
 
 loadPreviousInput();
