@@ -14,7 +14,8 @@ Our goal with this project is to create a platform for users to find exclusive c
 ## Image
 
 <!-- add a picture in the parentheses when everything is done -->
-<!-- ![Website image](./assets/Capture.PNG) -->
+
+![Website image](./assets/images/Capture.PNG)
 
 # Website Repo
 
