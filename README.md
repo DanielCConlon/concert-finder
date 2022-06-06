@@ -23,4 +23,4 @@ https://github.com/DanielCConlon/group-project-concert-finder
 
 # GitHub Pages
 
-https://danielcconlon.github.io/group-project-concert-finder/
+https://danielcconlon.github.io/concert-finder/
