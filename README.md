@@ -19,7 +19,7 @@ Our goal with this project is to create a platform for users to find exclusive c
 
 # Website Repo
 
-https://github.com/DanielCConlon/group-project-concert-finder
+https://github.com/DanielCConlon/concert-finder
 
 # GitHub Pages
 
