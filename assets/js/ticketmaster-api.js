@@ -22,6 +22,7 @@ var getTicketApi = function(artist){
         return response.json();
     })
     .then(function(data) {
+        console.log(data);
         return displayEvents(data);
     })
 
@@ -33,6 +34,12 @@ var displayEvents = function(events) {
 
         var eventName = events._embedded.events[i].name;
         var eventDate = events._embedded.events[i].dates.start.localDate;
+
+        let eventUrl = events._embedded.events[i].url;
+        let eventUrlEl = document.createElement("a");
+        eventUrlEl.setAttribute("target", "_blank");
+        eventUrlEl.setAttribute("href", eventUrl);
+
 
         var eventNameEl = document.createElement("span");
         eventNameEl.classList = "album-button ticketMasterBtn";
@@ -49,7 +56,9 @@ var displayEvents = function(events) {
         eventEl.appendChild(eventNameEl);
         eventEl.appendChild(eventDateEl);
 
-        eventTicketContainerEl.appendChild(eventEl);
+        eventUrlEl.appendChild(eventEl)
+
+        eventTicketContainerEl.appendChild(eventUrlEl);
 
     }
 };
