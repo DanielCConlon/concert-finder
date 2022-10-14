@@ -11,6 +11,8 @@ var artistHeaderEl = document.querySelector("#artist");
 // create an array to store previous searches
 var artistSearch = JSON.parse(artistSearchlocalstorage) || [];
 
+let clearButton = document.querySelector('#clear-btn');
+
 var formItunesInputHandler = function(event) {
     // call preventDefault
     event.preventDefault();
@@ -34,7 +36,6 @@ var formItunesInputHandler = function(event) {
     // saving the input and calling the function to display a previous search 
     saveInput(artistLookupEl);
     previousSearch(artistLookupEl);
-
 
 };
 
@@ -114,9 +115,10 @@ var loadPreviousInput = function() {
         // working to show up on the left side
         previousSearch(savedItems[i]);
     }
+};
 
-
-
+let clearPreviousInput = function() {
+    localStorage.clear();
 };
 
 
@@ -142,6 +144,7 @@ var previousSearchHandler = function(event) {
 
 userFormInputEl.addEventListener("submit", formItunesInputHandler);
 previousArtistSearchEl.addEventListener("click", previousSearchHandler);
+clearButton.addEventListener("click", clearPreviousInput);
 
 
 loadPreviousInput();
