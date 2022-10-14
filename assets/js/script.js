@@ -5,7 +5,6 @@ var paramterLimit = "&limit=10";
 var userInput = document.querySelector("#inputSearch");
 var userFormInputEl = document.querySelector("#searchArtist");
 var previousArtistSearchEl = document.querySelector("#previousArtist");
-// var albumButtonEl = document.querySelector(".album-btn");
 var artistSearchlocalstorage = localStorage.getItem("artistSearch");
 var artistHeaderEl = document.querySelector("#artist");
 // create an array to store previous searches
@@ -121,6 +120,8 @@ var loadPreviousInput = function() {
 
 let clearPreviousInput = function() {
     localStorage.clear();
+    previousArtistSearchEl.textContent = "";
+    albumsEl.textContent = "";
 };
 
 
