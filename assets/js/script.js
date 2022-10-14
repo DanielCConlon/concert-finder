@@ -111,9 +111,11 @@ var loadPreviousInput = function() {
     // get items from local storage
     var savedItems = JSON.parse(localStorage.getItem("artistSearch"));
 
-    for (var i = 0; i < savedItems.length; i++) {
-        // working to show up on the left side
-        previousSearch(savedItems[i]);
+    if (savedItems > 0) {
+        for (var i = 0; i < savedItems.length; i++) {
+            // working to show up on the left side
+            previousSearch(savedItems[i]);
+        }
     }
 };
 
