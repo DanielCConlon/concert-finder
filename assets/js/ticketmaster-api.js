@@ -34,6 +34,7 @@ var displayEvents = function(events) {
 
         var eventName = events._embedded.events[i].name;
         var eventDate = events._embedded.events[i].dates.start.localDate;
+        let eventLocation = events._embedded.events[i].dates.timezone;
 
         let eventUrl = events._embedded.events[i].url;
         let eventUrlEl = document.createElement("a");
@@ -47,14 +48,18 @@ var displayEvents = function(events) {
         
 
         var eventDateEl = document.createElement("span");
-        eventDateEl.classList = "album-button";
+        eventDateEl.classList = "album-button ticketMasterBtn";
         eventDateEl.textContent = eventDate;
 
+        let eventLocationEl = document.createElement("span");
+        eventLocationEl.classList = "album-button ticketMasterBtn"
+        eventLocationEl.textContent = eventLocation;
 
         var eventEl = document.createElement("button");
         eventEl.classList = "btn";
         eventEl.appendChild(eventNameEl);
         eventEl.appendChild(eventDateEl);
+        eventEl.appendChild(eventLocationEl);
 
         eventUrlEl.appendChild(eventEl)
 
