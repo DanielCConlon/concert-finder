@@ -50,8 +50,6 @@ var getItunesApi = function(artistName) {
 };
 
 var displayAlbum = function(artist) {
-    console.log(artist)
-
 
     for (var i = 0; i < artist.results.length; i++) {
 
